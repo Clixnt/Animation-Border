@@ -1,0 +1,92 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100svh;
+    font-family: var(--font-orbitron);
+    background-color: var(--background-ui-dark);
+}
+* {
+    padding: 0;
+    margin: 0;
+    /* outline: 2px solid blueviolet; */
+}
+:root {
+    --font-orbitron:  "Orbitron", serif;
+    --box-gray-transparent: rgb(25, 28, 40);
+    --background-ui-dark:rgb(32, 33, 36);
+}
+
+/* Real Code Stars Here 🗣️🗣️🗣️ */
+.container {
+    position: relative;
+    width: 85%;
+    height: 75%;
+    max-width: 700px;
+    max-height: 500px;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    background-color: var(--box-gray-transparent);
+    border-radius: 10px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.box h2 {
+    padding-inline: 10px;
+    text-align: center;
+    color: white;
+    animation: 6s texts linear infinite;
+}
+
+@keyframes texts {
+    0% {
+        color: white;
+        text-decoration-line: none;
+    }
+    50% {
+        color: blue;
+    }
+    100% {
+        color: white;
+    }
+ }
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 0.4rem;
+    border-radius: 10px;
+    z-index: -1;
+
+    animation: 4s spin linear infinite;
+    background: conic-gradient(from var(--angle), transparent 10%, darkblue 50%);
+}
+
+.box::after {
+    filter: blur(1px);
+    opacity: 0.8;
+}
+
+@keyframes spin {
+   from {
+        --angle: 0deg;
+   }
+   to {
+        --angle: 360deg;
+   }
+}
+
